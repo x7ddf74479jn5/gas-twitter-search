@@ -1,8 +1,7 @@
 {
-  "name": "gas-starter",
+  "name": "gas-twitter-search",
   "version": "1.0.0",
-  "description": "GAS template with clasp and esbuild",
-  "main": "index.js",
+  "description": "ツイートの検索結果をSlackに飛ばすbot",
   "scripts": {
     "build": "pnpm tailwind && pnpm bundle",
     "bundle": "node build",
@@ -19,7 +18,7 @@
     "url": "https://github.com/x7ddf74479jn5"
   },
   "repository": {
-    "url": "https://github.com/x7ddf74479jn5/gas-starter"
+    "url": "https://github.com/x7ddf74479jn5/gas-twitter-search"
   },
   "license": "MIT",
   "devDependencies": {
