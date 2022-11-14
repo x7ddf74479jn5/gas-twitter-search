@@ -15,5 +15,5 @@
     | --- | ------- |
     | slackWebhook | SlackのIncoming Webhook URL |
     | twitterToken | TwitterのBearer Token |
-4. 実行する関数をmainにして、いい感じにトリガーを設定する
-5. おしまい！！！！
+8. 実行する関数をmainにして、いい感じにトリガーを設定する
+9. おしまい！！！！
