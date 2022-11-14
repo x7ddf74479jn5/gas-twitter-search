@@ -3,13 +3,7 @@
  * @see https://developers.google.com/apps-script/reference/script/form-trigger-builder
  */
 
-import { getSpreadsheet } from "@/lib/sheet";
 import type { TimeBasedEvent } from "@/types";
-
-const setOnFormSubmitTrigger = (fn: string) => {
-  const sheet = getSpreadsheet();
-  ScriptApp.newTrigger(fn).forSpreadsheet(sheet).onFormSubmit().create();
-};
 
 const setTimeBasedTrigger = (fn: string, event: TimeBasedEvent) => {
   const { atHour, nearMinute = 0, frequency } = event;
@@ -30,6 +24,5 @@ export const resetTriggers = () => {
 };
 
 export const setTriggers = () => {
-  setOnFormSubmitTrigger("greeting");
-  setTimeBasedTrigger("greeting", { atHour: 9 });
+  setTimeBasedTrigger("main", { atHour: 9 });
 };

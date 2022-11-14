@@ -1,24 +1,14 @@
-import { Hook, Trigger } from "./core";
+import { Hook, Main, Trigger } from "./core";
 
-const greeting = () => {
-  Logger.log("Hello World");
-};
-
-const main = () => {
+const initTrigger = () => {
   Trigger.resetTriggers();
   Trigger.setTriggers();
 };
 
-/**
- * Note: GAS側で関数を使うにはglobalに露出させる必要がある。
- * esbuild-gas-pluginで置換するとき`global[key] = module`にすると**key**という関数名で置換されてしまう。
- * 必ず以下のように関数名を愚直に列挙する
- */
-
 // @ts-expect-error
-global.greeting = greeting;
+global.initTrigger = initTrigger;
 // @ts-expect-error
-global.main = main;
+global.main = Main.exec;
 // @ts-expect-error
 global.onOpen = Hook.onOpen;
 // @ts-expect-error

@@ -1,25 +1,29 @@
-let ssCache: GoogleAppsScript.Spreadsheet.Spreadsheet;
+const ss = SpreadsheetApp.getActiveSheet();
+const endRow = ss.getLastRow() - 1;
 
-export const getSpreadsheet = () => {
-  if (ssCache) return ssCache;
-  ssCache = SpreadsheetApp.getActiveSpreadsheet();
-  return ssCache;
-};
+/**
+ * スプレッドシートから検索ワードを取得
+ *
+ * @return {Array} 検索ワード
+ */
+export function getSearchWords(): string[][] {
+  return ss.getRange(2, 1, endRow, 1).getValues();
+}
 
-let sheetCache: GoogleAppsScript.Spreadsheet.Sheet;
+/**
+ * スプレッドシートからsince_idを取得
+ *
+ * @return {Array} since_id
+ */
+export function getSinceID(): string[][] {
+  return ss.getRange(2, 2, endRow, 1).getValues();
+}
 
-export const getActiveSheet = () => {
-  if (sheetCache) return sheetCache;
-  sheetCache = getSpreadsheet().getActiveSheet();
-  if (!sheetCache) {
-    throw new Error("スプレッドシートのシートが見つかりませんでした。");
-  }
-  return sheetCache;
-};
-
-export const getSheetData = (sheet: GoogleAppsScript.Spreadsheet.Sheet) => {
-  const sheetData = sheet.getDataRange().getValues() as string[][];
-  return sheetData;
-};
-
-export const getEndRow = getActiveSheet().getLastRow() - 1;
+/**
+ * スプレッドシートにsince_idを保存
+ *
+ * @param {Array} sinceID since_id
+ */
+export function setSinceID(sinceID: string[][]) {
+  ss.getRange(2, 2, endRow, 1).setValues(sinceID);
+}

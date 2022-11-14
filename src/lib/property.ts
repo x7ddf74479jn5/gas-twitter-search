@@ -10,11 +10,10 @@ export function openSettings() {
   SpreadsheetApp.getUi().showModalDialog(html, "Settings");
 }
 
-export function saveProperties(formObj: Record<string, string>) {
+export function saveProperties(formObj: Record<"slackWebhook" | "twitterToken", string>) {
   const scriptProperties = PropertiesService.getScriptProperties();
-  const { example } = formObj;
   scriptProperties.setProperties({
-    EXAMPLE: example,
+    ...formObj,
   });
 }
 
