@@ -14,4 +14,6 @@ global.onOpen = Hook.onOpen;
 // @ts-expect-error
 global.openSettings = Hook.openSettings;
 // @ts-expect-error
+global.saveProperties = Hook.saveProperties;
+// @ts-expect-error
 global.resetTriggers = Trigger.resetTriggers;
